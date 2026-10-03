@@ -12,20 +12,28 @@ def home(request):
 
 
 def register(request):
+    dict={}
     if request.method=='POST':
         username=request.POST.get('username')
         email=request.POST.get('email')
         password=request.POST.get('password')
-        user=User.objects.create_user(
-            username=username,
-            email=email,
-            password=password
-        )
-        user.save()
-        return redirect('login')
-    return render(request,'register.html')
+        if User.objects.filter(username__iexact=username).exists():
+            dict['error']='username already exists'
+            return render(request,'register.html',dict)
+        if username and password and email: 
+            user=User.objects.create_user(
+                username=username,
+                email=email,
+                password=password
+            )
+            return redirect('login')
+        else:
+            dict['error']='All 3 fields are required'
+            
+    return render(request,'register.html',dict)
 
 def login_view(request):
+    dict={}
     if request.method=='POST':
         username=request.POST.get('username')
         password=request.POST.get('password')
@@ -34,8 +42,8 @@ def login_view(request):
             login(request,user)
             return redirect('home')
         else:
-            return redirect('register')
-    return render(request,'login.html')
+            dict['error']='invalid username or password'
+    return render(request,'login.html',dict)
 
 def logout_view(request):
     logout(request)

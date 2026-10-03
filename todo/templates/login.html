@@ -8,7 +8,9 @@ login
 <center>
     <h1>Login Page</h1>
     <hr>
-
+{% if error %}
+{{error}}
+{% endif %}
     <div class="login">
     <form action="" method="post">
     {% csrf_token %}

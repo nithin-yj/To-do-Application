@@ -24,8 +24,8 @@ Built as a hands-on project to learn Django's request/response cycle, ORM, forms
  
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
-cd todo_project
+git clone https://github.com/nithin-yj/To-do-Application.git
+cd To-do-Application
  
 # 2. Create and activate a virtual environment
 python -m venv venv
@@ -62,7 +62,7 @@ Optional: create an admin user with `python manage.py createsuperuser` and visit
 ## Project Structure
  
 ```
-todo_project/
+To-do-Application/
 ├── manage.py
 ├── todo_project/        # project settings and root URLs
 └── todo/                # app: models, views, forms, urls, templates

@@ -71,3 +71,11 @@ def edit_task(request,pk):
     else:
         form=EditForm(instance=task)
     return render(request,'edit_task.html',{'form':form})
+
+@login_required
+def delete_task(request,pk):
+    task=get_object_or_404(Todo,pk=pk,user=request.user)
+    if request.method=='POST':
+        task.delete()
+        return redirect('list')
+    return render(request,'delete_task.html',{'task':task})

@@ -13,6 +13,7 @@
     <div class="nav" style="justify-content: space-between;"">
         {% if request.user.is_authenticated %}
         <p>Welcome back, {{request.user}}</p>
+        
         <a href="{% url 'logout' %}">Logout</a>
         {% endif %}
     </div>

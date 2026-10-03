@@ -7,11 +7,15 @@ Tasklist
 <center>
 
     <h1>Task Page</h1>
+    <a href="{% url 'add' %}">Add Task</a> <br>
     <hr>
+    
+
 {% for task in tasks %}
 {{task.title}} <br>
 {{task.description}} <br>
-<a href="{% url 'edit' task.id %}">Edit Task</a>
+<a href="{% url 'edit' task.id %}">Edit Task</a> <br>
+<a href="{% url 'delete' task.id %}">Delete Task</a> <br>
 {% if task.status %}
 
 Done

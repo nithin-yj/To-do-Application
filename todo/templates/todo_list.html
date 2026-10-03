@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+Tasklist
+{% endblock title %}
+
+{% block content %}
+<center>
+
+    <h1>Task Page</h1>
+    <hr>
+{% for task in tasks %}
+{{task.title}} <br>
+{{task.description}} <br>
+<a href="{% url 'edit' task.id %}">Edit Task</a>
+{% if task.status %}
+
+Done
+{% else %}
+
+Pending
+{% endif %}
+<hr>
+{% empty %}
+<p>No tasks created</p>
+{% endfor %}
+
+
+</center>
+{% endblock content %}

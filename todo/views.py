@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-
+from .models import Todo
+from .forms import TodoForm,EditForm
 
 @login_required
 def home(request):
@@ -39,3 +40,34 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+@login_required
+def todo_list(request):
+    tasks=Todo.objects.filter(user=request.user)
+    return render(request,'todo_list.html',{'tasks':tasks})
+
+@login_required
+def add_task(request):
+    if request.method=='POST':
+        form=TodoForm(request.POST)
+        if form.is_valid():
+            task=form.save(commit=False)
+            task.user=request.user
+            task.save()
+            return redirect('list')
+    else:
+        form=TodoForm()
+    return render(request,'add_task.html',{'form':form})
+
+
+@login_required
+def edit_task(request,pk):
+    task=get_object_or_404(Todo,pk=pk,user=request.user)
+    if request.method=='POST':
+        form=EditForm(request.POST,instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('list')
+    else:
+        form=EditForm(instance=task)
+    return render(request,'edit_task.html',{'form':form})

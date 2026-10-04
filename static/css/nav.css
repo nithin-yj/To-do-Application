@@ -1,0 +1,58 @@
+*{
+    padding:0%;
+    margin: 0%;
+}
+
+.nav{
+    
+
+    border-bottom: 2px solid black;
+    display:flex;
+    justify-content: space-between;
+    font-size: 25px;
+    padding: 10px;
+    a{
+        text-decoration: none;
+        color: white;
+        font-family: cursive;
+
+    }
+    button{
+        font-size: 22px;
+        border-radius: 5px;
+        background-color: blue;
+        height: 43px;
+        padding: 5px;
+        margin-right: 2px;
+        margin-top: 2px;
+    }
+
+    
+    
+}
+
+.task{
+    margin-top: 30px;
+    padding: 15px;
+    border: 2px solid black;
+    width:fit-content;
+    width: 50%;
+    font-family: cursive;
+    .editdel{
+        padding: 15px;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        button{
+            font-size: 15px;
+            font-weight: bolder;
+            padding: 5px;
+
+        }
+    }
+
+    
+}
+
+

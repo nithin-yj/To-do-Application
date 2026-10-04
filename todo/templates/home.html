@@ -3,12 +3,18 @@
 {% block title %}
 Home
 {% endblock title %}
+{% block heading%}
+  <h1 style="font-family: cursive;">Welcome to Home Page</h1>
+{% endblock heading%}
 
 {% block content %}
 
 <center>
-    <h1>Welcome to Home Page</h1>
-    <hr>
+ <div class="home">
+  <button style="font-size: 25px;margin-top: 150px; padding: 10px;"><a style="text-decoration: none;" href="{% url 'add' %}">Add Task</a></button> <br>
+  <button style="font-size: 25px;margin-top: 120px; padding: 10px;"><a style="text-decoration: none;" href="{% url 'list' %}">go to tasks</a></button>
+ </div>
+  
 </center>
 
 {% endblock content %}

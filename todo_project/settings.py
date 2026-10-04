@@ -130,3 +130,13 @@ MAILERS = {
 
 
 LOGIN_URL='/login/'
+
+#static configuration:
+
+STATIC_URL='static/'
+
+STATIC_URL='static/'
+import os
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static'),
+]

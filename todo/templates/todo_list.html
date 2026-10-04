@@ -3,30 +3,35 @@
 Tasklist
 {% endblock title %}
 
+{% block heading%}
+<h1 style="font-family: cursive;">Task Page</h1>
+{% endblock heading%}
 {% block content %}
 <center>
 
-    <h1>Task Page</h1>
-    <a href="{% url 'add' %}">Add Task</a> <br>
-    <hr>
-    
+    <div class="task">
+        {% for task in tasks %}
+        <h1 style="font-size: 22px;"> {{task.title}} </h1>
+        <p>{{task.description}} </p>
+        <div class="editdel" style="display: flex;margin-left: 270px; gap: 10px;">
+            <button><a href="{% url 'edit' task.id %}">Edit Task</a></button> <br>
+            <button><a href="{% url 'delete' task.id %}">Delete Task</a> </button><br>
+        </div>
+        {% if task.status %}
 
-{% for task in tasks %}
-{{task.title}} <br>
-{{task.description}} <br>
-<a href="{% url 'edit' task.id %}">Edit Task</a> <br>
-<a href="{% url 'delete' task.id %}">Delete Task</a> <br>
-{% if task.status %}
+        Done <i class="fa-solid fa-check"></i>
+        {% else %}
 
-Done
-{% else %}
+        Pending <i class="fa-solid fa-x"></i>
+        {% endif %}
+        <hr>
+        {% empty %}
+        <p>No tasks created</p>
+        {% endfor %}
+    </div>
 
-Pending
-{% endif %}
-<hr>
-{% empty %}
-<p>No tasks created</p>
-{% endfor %}
+
+
 
 
 </center>

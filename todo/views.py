@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Todo
 from .forms import TodoForm,EditForm
+from django.core.paginator import Paginator
 
 @login_required
 def home(request):
@@ -51,7 +52,10 @@ def logout_view(request):
 
 @login_required
 def todo_list(request):
-    tasks=Todo.objects.filter(user=request.user)
+    task_list=Todo.objects.filter(user=request.user).order_by('-id')
+    paginator=Paginator(task_list,3)
+    page_number=request.GET.get('page')
+    tasks=paginator.get_page(page_number)
     return render(request,'todo_list.html',{'tasks':tasks})
 
 @login_required

@@ -29,6 +29,27 @@ Tasklist
         <p>No tasks created</p>
         {% endfor %}
     </div>
+    <!-- Pagination Navigation controls matching your cursive design theme -->
+<div class="pagination" style="margin-top: 30px; font-family: cursive; font-size: 20px; text-align: center;">
+    <span class="step-links">
+        
+        {% if tasks.has_previous %}
+            <a href="?page=1" style="background-color: white; padding: 8px 12px; border: 1px solid black; border-radius: 5px; text-decoration: none; color: black;">&laquo; First</a>
+            <a href="?page={{ tasks.previous_page_number }}" style="background-color: white; padding: 8px 12px; border: 1px solid black; border-radius: 5px; text-decoration: none; color: black; margin-right: 10px;">Previous</a>
+        {% endif %}
+
+        <span class="current" style="padding: 0 10px;">
+            Page {{ tasks.number }} of {{ tasks.paginator.num_pages }}
+        </span>
+
+        {% if tasks.has_next %}
+            <a href="?page={{ tasks.next_page_number }}" style="background-color: white; padding: 8px 12px; border: 1px solid black; border-radius: 5px; text-decoration: none; color: black; margin-left: 10px;">Next</a>
+            <a href="?page={{ tasks.paginator.num_pages }}" style="background-color: white; padding: 8px 12px; border: 1px solid black; border-radius: 5px; text-decoration: none; color: black;">Last &raquo;</a>
+        {% endif %}
+        
+    </span>
+</div>
+
 
 
 

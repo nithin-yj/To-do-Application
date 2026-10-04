@@ -19,7 +19,8 @@ Built as a hands-on project to learn Django's request/response cycle, ORM, forms
 - Python 3
 - Django
 - SQLite
-- HTML, Bootstrap 5
+- HTML
+- CSS
 ## Getting Started
  
 ```bash
@@ -64,6 +65,7 @@ Optional: create an admin user with `python manage.py createsuperuser` and visit
 ```
 To-do-Application/
 ├── manage.py
+├── static/css           #static files ,added basic UI to make it look good
 ├── todo_project/        # project settings and root URLs
 └── todo/                # app: models, views, forms, urls, templates
     ├── models.py        # Todo model

@@ -11,8 +11,11 @@ Tasklist
 
     <div class="task">
         {% for task in tasks %}
-        <h1 style="font-size: 22px;"> {{task.title}} </h1>
-        <p>{{task.description}} </p>
+        
+        <h1 style="font-size: 22px;background-color: white;
+"> {{task.title}} </h1>
+        <p style="background-color: white;
+"> {{task.description}} </p>
         <div class="editdel" style="display: flex;margin-left: 270px; gap: 10px;">
             <button><a href="{% url 'edit' task.id %}">Edit Task</a></button> <br>
             <button><a href="{% url 'delete' task.id %}">Delete Task</a> </button><br>
@@ -24,12 +27,12 @@ Tasklist
 
         Pending <i class="fa-solid fa-x"></i>
         {% endif %}
+        <div style="margin-top: 15px;"></div>
         <hr>
         {% empty %}
         <p>No tasks created</p>
         {% endfor %}
     </div>
-    <!-- Pagination Navigation controls matching your cursive design theme -->
 <div class="pagination" style="margin-top: 30px; font-family: cursive; font-size: 20px; text-align: center;">
     <span class="step-links">
         

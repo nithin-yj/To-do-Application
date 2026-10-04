@@ -1,6 +1,8 @@
 *{
     padding:0%;
     margin: 0%;
+    background-color:rgb(255, 252, 240);
+
 }
 
 .nav{
@@ -15,7 +17,8 @@
         text-decoration: none;
         color: white;
         font-family: cursive;
-
+       
+        
     }
     button{
         font-size: 22px;
@@ -25,6 +28,8 @@
         padding: 5px;
         margin-right: 2px;
         margin-top: 2px;
+        background-color: blue;
+        color: black;
     }
 
     
@@ -32,6 +37,7 @@
 }
 
 .task{
+    background-color: white;
     margin-top: 30px;
     padding: 15px;
     border: 2px solid black;
@@ -39,12 +45,17 @@
     width: 50%;
     font-family: cursive;
     .editdel{
+            background-color: white;
+
         padding: 15px;
         a{
+                background-color: white;
+
             text-decoration: none;
             color: black;
         }
         button{
+                background-color: white;
             font-size: 15px;
             font-weight: bolder;
             padding: 5px;
@@ -55,4 +66,64 @@
     
 }
 
+
+.add{
+    margin-top: 100px;
+    form{
+        width: fit-content;
+        font-size: 25px;
+        padding: 10px;
+        button{
+            font-size: 25px;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+
+        }
+
+    }
+}
+.edit{
+    margin-top: 100px;
+    form{
+        width: fit-content;
+        font-size: 25px;
+        padding: 10px;
+        button{
+            font-size: 25px;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+    }
+}
+.cursive-input {
+    font-family: cursive !important;
+    font-size: 20px !important;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 100%; /* Keeps fields neatly aligned */
+}
+
+
+.delete{
+    margin-top: 45px;
+    font-family: cursive;
+    .btns{
+        cursor: pointer;
+        display: flex;
+        margin-left: 650px;
+        margin-top: 45px;
+        gap: 30px;
+        button{
+            cursor: pointer;
+            font-size: 25px;
+            border-radius: 10px;
+            padding: 10px;
+
+        }
+    }
+}
 

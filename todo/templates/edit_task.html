@@ -7,11 +7,15 @@ edit task
 {% block content %}
 
     <center>
-        <form action="" method="post">
+        <div class="edit">
+             <form action="" method="post">
             {% csrf_token %}
-            {{form.as_p}}
+            {{form.as_p}} 
+            <br>
             <button type="submit">Edit Task</button>
         </form>
+        </div>
+       
 
     </center>
 {% endblock content %}

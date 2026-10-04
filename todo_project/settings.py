@@ -133,7 +133,6 @@ LOGIN_URL='/login/'
 
 #static configuration:
 
-STATIC_URL='static/'
 
 STATIC_URL='static/'
 import os
